@@ -12,21 +12,12 @@ Given a directed network with node balances (supplies/demands) and edge costs, d
 ## Mathematical Formulation
 The problem is modeled as a linear program:
 
-Minimize:
-$$
-\sum_{(i,j) \in E} c_{ij} x_{ij}
-$$
-Subject to:
-$$
-\sum_{j: (j,i) \in E} x_{ji} - \sum_{j: (i,j) \in E} x_{ij} = -b_i \quad \forall i \in N
-$$
-$$
-x_{ij} \geq 0 \quad \forall (i,j) \in E
-$$
-where:
-- $x_{ij}$: flow on edge $(i, j)$
-- $c_{ij}$: cost per unit flow on edge $(i, j)$
-- $b_i$: supply/demand at node $i$ (positive for supply, negative for demand)
+Minimize:  
+![minimize](https://latex.codecogs.com/svg.image?\sum_{(i,j)\in%20E}c_{ij}x_{ij})
+
+Subject to:  
+![constraint1](https://latex.codecogs.com/svg.image?\sum_{j:(j,i)\in%20E}x_{ji}-\sum_{j:(i,j)\in%20E}x_{ij}=-b_i\quad\forall%20i\in%20N)  
+![constraint2](https://latex.codecogs.com/svg.image?x_{ij}\geq0\quad\forall(i,j)\in%20E)
 
 ---
 
