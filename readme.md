@@ -1,6 +1,6 @@
 # Minimum Cost Network Flow Solver
 
-This project implements a minimum cost network flow solver in Python using IBM CPLEX. It is intended for Computer Science and Engineering (CSE) students and professionals interested in optimization, operations research, and network flow algorithms.
+This project implements a minimum cost network flow solver in Python using IBM CPLEX. 
 
 ---
 
