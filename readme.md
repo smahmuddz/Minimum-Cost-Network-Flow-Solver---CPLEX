@@ -4,20 +4,37 @@ This project implements a minimum cost network flow solver in Python using IBM C
 
 ---
 
-## Problem Statement
-Given a directed network with node balances (supplies/demands) and edge costs, determine the flow on each edge that satisfies all node balances and minimizes the total cost.
+Objective:
+    Find the flow on each edge of a directed network that meets all supply and demand requirements at each node, while minimizing the total cost.
 
----
+Optimization Problem:
 
-## Mathematical Formulation
-The problem is modeled as a linear program:
+Goal:
+    Minimize the total cost of flow:
+        Add up (cost per unit × flow) for every edge in the network.
 
-Minimize:  
-![minimize](https://latex.codecogs.com/svg.image?\sum_{(i,j)\in%20E}c_{ij}x_{ij})
+    For every edge from node i to node j (written as (i, j) in E):
+        Total Cost = c_ij × x_ij
+        where:
+            • c_ij = cost per unit flow on edge (i, j)
+            • x_ij = amount of flow on edge (i, j)
 
-Subject to:  
-![constraint1](https://latex.codecogs.com/svg.image?\sum_{j:(j,i)\in%20E}x_{ji}-\sum_{j:(i,j)\in%20E}x_{ij}=-b_i\quad\forall%20i\in%20N)  
-![constraint2](https://latex.codecogs.com/svg.image?x_{ij}\geq0\quad\forall(i,j)\in%20E)
+Subject to the following constraints:
+
+1. Flow Conservation at Each Node:
+    For every node i in the network:
+        (Total incoming flow) – (Total outgoing flow) = –b_i
+
+    - If b_i is positive, node i is a supply node (it provides flow).
+    - If b_i is negative, node i is a demand node (it requires flow).
+
+2. Non-Negative Flow on Edges:
+    The flow on every edge must be zero or positive (no negative flows).
+
+Definitions:
+    x_ij: Flow on edge from node i to node j
+    c_ij: Cost per unit flow on edge (i, j)
+    b_i: Net supply/demand at node i (positive for supply, negative for demand)
 
 ---
 
@@ -48,7 +65,7 @@ Subject to:
 
 ---
 
-## Output
+## Output of the given problem
 ```
 Solution Status: Optimal
 Total Minimum Cost: 840.0
