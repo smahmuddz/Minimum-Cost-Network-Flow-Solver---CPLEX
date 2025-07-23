@@ -48,7 +48,7 @@ Subject to:
 
 ---
 
-## Example Output
+## Output
 ```
 Solution Status: Optimal
 Total Minimum Cost: 840.0
